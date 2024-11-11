@@ -1,6 +1,6 @@
-Nama: Muhammad Rajendra Alkautsar Dikna
-NIM: 225150207111032
-Kelas: PAPB-C
+- Nama: Muhammad Rajendra Alkautsar Dikna
+- NIM: 225150207111032
+- Kelas: PAPB-C
 
 
 Inventory app
