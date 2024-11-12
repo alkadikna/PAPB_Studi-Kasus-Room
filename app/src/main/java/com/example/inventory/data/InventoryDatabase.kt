@@ -22,7 +22,11 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 
 /**
- * Database class with a singleton Instance object.
+ * Ini merupakan Database yang menggunakan ItemDao dan Item (Entity). Untuk membuat database dibutuhkan
+ * kelas abstrak dan anotasi @Database sekaligus inisiasi entitas yang digunakan. Kemudian di dalamnya
+ * diinisiasikan juga DAO yang digunakan (ItemDao). Kemudian companion object dibuat dimana didalamnya
+ * dibuat instance sebagai referensi dari database. Agar aplikasi dapat menggunakan database, untuk
+ * mengambilnya, dibuat fungsi getDatabase.
  */
 @Database(entities = [Item::class], version = 1, exportSchema = false)
 abstract class InventoryDatabase : RoomDatabase() {
@@ -34,14 +38,8 @@ abstract class InventoryDatabase : RoomDatabase() {
         private var Instance: InventoryDatabase? = null
 
         fun getDatabase(context: Context): InventoryDatabase {
-            // if the Instance is not null, return it, otherwise create a new database instance.
             return Instance ?: synchronized(this) {
                 Room.databaseBuilder(context, InventoryDatabase::class.java, "item_database")
-                    /**
-                     * Setting this option in your app's database builder means that Room
-                     * permanently deletes all data from the tables in your database when it
-                     * attempts to perform a migration with no defined migration path.
-                     */
                     .fallbackToDestructiveMigration()
                     .build()
                     .also { Instance = it }

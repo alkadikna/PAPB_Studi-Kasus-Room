@@ -20,7 +20,10 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 /**
- * Entity data class represents a single row in the database.
+ * Data kelas Ttem merupakan representasi tabel atau entitas menggunakan anotasi @Entity
+ * dengan nama tabel "items" di database Room. Tabel ini terdiri dari beberapa properti, seperti:
+ * id, name, price, dan quantity, dimana id merupakan PrimaryKey dari tabel tersebut. PrimaryKey
+ * juga di-generate secara incremental.
  */
 @Entity(tableName = "items")
 data class Item(

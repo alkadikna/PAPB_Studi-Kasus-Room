@@ -18,6 +18,11 @@ package com.example.inventory.data
 
 import kotlinx.coroutines.flow.Flow
 
+/**
+ * Merupakan override dari ItemsRepository dimana berguna untuk menggunakan fungsi-fungsi operasi
+ * database secara offline.
+ */
+
 class OfflineItemsRepository(private val itemDao: ItemDao) : ItemsRepository {
     override fun getAllItemsStream(): Flow<List<Item>> = itemDao.getAllItems()
 

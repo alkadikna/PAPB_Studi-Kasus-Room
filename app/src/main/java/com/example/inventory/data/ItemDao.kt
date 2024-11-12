@@ -25,7 +25,13 @@ import androidx.room.Update
 import kotlinx.coroutines.flow.Flow
 
 /**
- * Database access object to access the Inventory database
+ * ItemDao merupakan komponen utama dalam Room yang bertanggung jawab untuk melakukan suatu action ke database.
+ * Room library menyediakan anotasi seperti @Query, @Insert, @Update, dan @Delete untuk melakukan operasi data
+ * ke database. Selain itu Room tidak memperbolehkan operasi database berada pada Main Thread, sehingga fungsi
+ * untuk melakukan operasinya perlu menggunakan suspend agar berjalan di thread terpisah. Terdapat juga argumen
+ * onConflict untuk melakukan handling jika ada konflik antara data yang ada di database dan data yang di-add.
+ * Ada juga Flow dimana berguna untuk menjaga data agar up-to-date dengan memberikan notifikasi jika data di
+ * database berubah. UI akan diperbarui dan jika menggunakan Flow otomatis proses berjalan di thread terpisah.
  */
 @Dao
 interface ItemDao {
@@ -36,8 +42,6 @@ interface ItemDao {
     @Query("SELECT * from items WHERE id = :id")
     fun getItem(id: Int): Flow<Item>
 
-    // Specify the conflict strategy as IGNORE, when the user tries to add an
-    // existing Item into the database Room ignores the conflict.
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(item: Item)
 
