@@ -25,7 +25,7 @@ import com.example.inventory.data.ItemsRepository
 import java.text.NumberFormat
 
 /**
- * ViewModel to validate and insert items in the Room database.
+ * ViewModel untuk melakukan entry atau memasukkan data ke database dari input pada ui.
  */
 class ItemEntryViewModel(private val itemsRepository: ItemsRepository) : ViewModel() {
 

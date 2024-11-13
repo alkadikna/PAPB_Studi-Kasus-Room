@@ -28,7 +28,7 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 
 /**
- * ViewModel to retrieve and update an item from the [ItemsRepository]'s data source.
+ * ViewModel ini digunakan untuk melakuakan edit dan pembaruan data pada database dan ui state-nya
  */
 class ItemEditViewModel(
     savedStateHandle: SavedStateHandle,

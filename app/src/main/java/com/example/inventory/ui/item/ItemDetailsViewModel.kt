@@ -28,7 +28,7 @@ import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 
 /**
- * ViewModel to retrieve, update and delete an item from the [ItemsRepository]'s data source.
+ * ViewModel to mendapatkan, memperbarui and menghapus  data dari repository atau database.
  */
 class ItemDetailsViewModel(
     savedStateHandle: SavedStateHandle,
